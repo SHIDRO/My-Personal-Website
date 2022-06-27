@@ -24,6 +24,9 @@ const Cart = () => {
     const navigate = useNavigate();
 
     const onClose = () => {
+      if(location.pathname === "/cart"){
+        return navigate('/')
+      }
       const page = location.pathname.split('/cart')[0];
       navigate(page);
     }

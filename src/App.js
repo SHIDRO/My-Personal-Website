@@ -4,10 +4,10 @@ import ProductsList from "./Components/Products/ProductsList";
 import Home from "./pages/Home";
 import Cart from "./Components/Cart/Cart";
 import { Navigate } from "react-router-dom";
-import './App.css'
+import "./App.css";
+import Works from "./pages/Works";
 
 // 1) *add contact me page* - NOW
-// 2) ADD WORKS (EXAMPLE OF PREV WORKS)
 
 function App() {
   return (
@@ -23,12 +23,8 @@ function App() {
             <Route path="cart/*" element={<Cart />} />
           </Route>
 
-          <Route path="/about" element={<h1>About me</h1>}>
+          <Route path="/works" element={<Works/>}>
             <Route path="cart/*" element={<Cart />} />
-          </Route>
-
-          <Route path="/works" element={<h1>My Masterpieces.</h1>}>
-
           </Route>
 
           <Route path="*" element={<Navigate to="/" />}></Route>

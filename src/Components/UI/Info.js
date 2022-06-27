@@ -1,49 +1,43 @@
 import React from "react";
-import { Container, Avatar, Box, Typography, Grid } from "@mui/material";
-
-const infoSections = [
-  {
-    id: '1',
-    avatarfloat: "right",
-    textFloat: "left",
-    text: "Some Text",
-    image: "OP",
-  },
-  {
-    id: '2',
-    avatarfloat: "left",
-    textFloat: "right",
-    text: "Some Text",
-    image: "AD",
-  },
-];
-
-const avatarStyle = { width: "100px", height: "100px", marginTop: "10px" };
+import { Avatar, Typography, Grid } from "@mui/material";
+import infoSections from "../../constants/infoData";
 
 const Info = () => {
   return (
-    <Grid sx={{backgroundColor: '#cccccc'}} container>
-        
+    <>
+      <Grid sx={{ backgroundColor: "#d9d9d9", padding: '20px' }} container>
+        <Grid item sx={{ margin: "20px" }} lg={12}>
+          <Typography align="center" variant="h4">
+            Advanced Technologies
+          </Typography>
+        </Grid>
         {infoSections.map((info) => (
-            
-            <Grid item lg={12} >
-            <Box sx={{ margin: "20px auto 140px", width: "80%" }}>
+          <Grid
+            key={info.id}
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              flexDirection: "column",
+              margin: 'auto'
+            }}
+            item
+            lg={4}
+          >
             <Typography
-              sx={{ float: info.textFloat, margin: "20px 0 0 0" }}
-              variant="h4"
+              sx={{ margin: "30px 0 10px 0 " }}
+              align="center"
+              variant="h5"
             >
               {info.text}
             </Typography>
-            <Avatar sx={{ float: info.avatarfloat, ...avatarStyle }}>
-              {info.image}
-            </Avatar>
-            </Box>
-            </Grid>
-
+            <Avatar
+              sx={{ width: "120px", height: "120px" }}
+              src={info.image}
+            ></Avatar>
+          </Grid>
         ))}
-  
-    </Grid>
-      
+      </Grid>
+    </>
   );
 };
 

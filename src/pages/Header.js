@@ -21,7 +21,7 @@ import { uiActions } from "../store/store";
 const tabs = [
   { id: 1, name: "Home" },
   { id: 2, name: "Products" },
-  { id: 3, name: "About" },
+  { id: 3, name: "Works" },
 ];
 
 const Header = () => {
