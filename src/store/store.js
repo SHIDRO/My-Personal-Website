@@ -31,21 +31,21 @@ const cart = createSlice({
     }
 });
 
-const UI = createSlice({
-    name: 'ui',
-    initialState: {openModal: false},
-    reducers: {
-        toggleModal(state, action){
-            state.openModal = !state.openModal
-        }
-    }
-})
+// const UI = createSlice({
+//     name: 'ui',
+//     initialState: {openModal: false},
+//     reducers: {
+//         toggleModal(state, action){
+//             state.openModal = !state.openModal
+//         }
+//     }
+// })
 
 const store = configureStore({
-    reducer: {cart: cart.reducer, ui: UI.reducer}
+    reducer: {cart: cart.reducer}
 });
 
 export const cartActions = cart.actions;
-export const uiActions = UI.actions;
+// export const uiActions = UI.actions;
 
 export default store;

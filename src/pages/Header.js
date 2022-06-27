@@ -15,7 +15,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import LanguageIcon from "@mui/icons-material/Language";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { uiActions } from "../store/store";
 
 const tabs = [
@@ -30,9 +30,6 @@ const Header = () => {
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
   const [tab, setTab] = useState("Home");
-  const dispatch = useDispatch();
-
-  console.log(location);
 
   const onClose = () => {
     setOpen((prevState) => !prevState);
