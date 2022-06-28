@@ -1,11 +1,14 @@
 import { Divider, TextField, Typography, Paper, Box, Button, Avatar } from "@mui/material";
 import { Container } from "@mui/system";
-import React, { useRef } from "react";
+import React, { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
 import useMediaQuery from '@mui/material/useMediaQuery';
 import Info from "../Components/UI/Info";
+import ContactModal from "../Components/Contact Me/ContactModal";
 
 const Home = () => {
+  const [open, setOpen] = useState(false);
+
   const matches1388 = useMediaQuery('(max-width: 1388px)');
   const matches1000 = useMediaQuery('(max-width: 1000px)');
   const matches533 = useMediaQuery('(max-width: 560px)')
@@ -40,10 +43,9 @@ const Home = () => {
     width="60%"
   }
 
-  const testRef = useRef();
-
-  console.log(matches1388);
   return (
+    <>
+    <ContactModal open={open} setOpen={setOpen}/>
     <Container sx={{ marginTop: '20px', maxWidth: '80%'}} maxWidth="">
       <Paper
         style={{
@@ -82,7 +84,7 @@ const Home = () => {
         I have wide & deep knowledge in web development.
         </Typography>
 
-        <Button sx={{margin: `${buttonMargin}`}} size={buttonSize} variant="contained" >
+        <Button sx={{margin: `${buttonMargin}`}} onClick={() => setOpen(true)} size={buttonSize} variant="contained" >
           Let's Talk
         </Button>
         </Box>
@@ -92,6 +94,7 @@ const Home = () => {
 
       <Outlet />
     </Container>
+    </>
   );
 };
 

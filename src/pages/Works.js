@@ -19,8 +19,8 @@ const Works = () => {
             ))}
             
           </Grid>
-
-            <Outlet/>
+          
+          <Outlet/>
 
     </Container>
   )

@@ -6,8 +6,10 @@ import Cart from "./Components/Cart/Cart";
 import { Navigate } from "react-router-dom";
 import "./App.css";
 import Works from "./pages/Works";
+import ContactForm from "./Components/Contact Me/ContactForm";
+import GreetingPage from "./pages/GreetingPage";
 
-// 1) *add contact me page* - NOW
+// 1) Add back navigation & error notification (email me page)
 
 function App() {
   return (
@@ -18,6 +20,10 @@ function App() {
           <Route path="/" element={<Home />}>
             <Route path="cart/*" element={<Cart />} />
           </Route>
+
+          <Route path="/greeting-email" element={<GreetingPage/>} ></Route>
+
+          <Route path="/mail-me" element={<ContactForm/>}></Route>
 
           <Route path="/products" element={<ProductsList />}>
             <Route path="cart/*" element={<Cart />} />

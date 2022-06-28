@@ -6,7 +6,7 @@ const Info = () => {
   return (
     <>
       <Grid sx={{ backgroundColor: "#d9d9d9", padding: '20px' }} container>
-        <Grid item sx={{ margin: "20px" }} lg={12}>
+        <Grid item sx={{ margin: "20px" }} xs={12}>
           <Typography align="center" variant="h4">
             Advanced Technologies
           </Typography>

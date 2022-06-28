@@ -5,7 +5,7 @@ import CartItem from './CartItem';
 import {useNavigate, Routes, Route, useLocation} from 'react-router-dom'
 import OrderForm from '../OrderForm/OrderForm';
 
-const style = {
+export const style = {
     position: 'absolute',
     top: '30%',
     left: '50%',
