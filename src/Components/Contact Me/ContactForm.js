@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import {
   Grid,
   Container,
@@ -10,14 +10,13 @@ import {
 import axios from "axios";
 import useValidate from "../../hooks/useValidate";
 import { useNavigate } from "react-router-dom";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
-const initialData = { name: "", email: "", text: "" };
-
-axios.defaults.headers.post['Content-Type'] = 'application/json';
+axios.defaults.headers.post["Content-Type"] = "application/json";
 
 const ContactForm = () => {
-    const [isLoading, setIsLoading] = useState(false); 
-    const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
   const {
     inputRef: nameInputRef,
     onChangeHanler: onChangeNameHanler,
@@ -59,29 +58,33 @@ const ContactForm = () => {
     const enteredEmail = emailInputRef.current.value;
     const enteredText = textInputRef.current.value;
     axios
-      .post(
-        "https://formsubmit.co/ajax/adamhd930@gmail.com",
-        {
-          name: enteredName,
-          email: enteredEmail,
-          text: enteredText,
-        }
-      )
+      .post("https://formsubmit.co/ajax/adamhd930@gmail.com", {
+        name: enteredName,
+        email: enteredEmail,
+        text: enteredText,
+      })
       .then((res) => {
         console.log(res);
         textInputRef.current.value = "";
         emailInputRef.current.value = "";
         nameInputRef.current.value = "";
         setIsLoading(false);
-        navigate('/greeting-email');
+        navigate("/greeting-email");
       });
   };
 
   const isFormValid = isNameInputValid && isEmailInputValid && isTextInputValid;
-  console.log(isFormValid);
   return (
     <Container maxWidth="lg">
-      <Typography sx={{ margin: "20px 0 10px 0" }} variant="h3">
+      <Button
+        onClick={() => navigate("/")}
+        startIcon={<ArrowBackIcon />}
+        sx={{ marginTop: "20px", color: "black" }}
+        variant="text"
+      >
+        <b>Back To Home</b>
+      </Button>
+      <Typography sx={{ margin: "10px 0 10px 0" }} variant="h3">
         Contact Me
       </Typography>
       <Typography variant="h6" gutterBottom>
@@ -97,6 +100,15 @@ const ContactForm = () => {
               sx={{ width: "60%", margin: "auto" }}
               label="Name"
             />
+            {nameHasError && (
+              <Typography
+                align="center"
+                sx={{ color: "red", marginTop: "10px" }}
+                variant="subtitle2"
+              >
+                Please enter your name.
+              </Typography>
+            )}
           </FormControl>
         </Grid>
         <Grid item xs={12}>
@@ -109,6 +121,15 @@ const ContactForm = () => {
               label="Email"
               placeholder="example@gmail.com"
             />
+            {emailHasError && (
+              <Typography
+                align="center"
+                sx={{ color: "red", marginTop: "10px" }}
+                variant="subtitle2"
+              >
+                Please enter a valid Email.
+              </Typography>
+            )}
           </FormControl>
         </Grid>
         <Grid item xs={12}>
@@ -123,6 +144,15 @@ const ContactForm = () => {
               rows={6}
               placeholder="Tell me your requirments & ideas"
             />
+            {textHasError && (
+              <Typography
+                align="center"
+                sx={{ color: "red", marginTop: "10px" }}
+                variant="subtitle2"
+              >
+                Please enter something us to know about.{" "}
+              </Typography>
+            )}
             <Button
               onClick={onSubmitHandler}
               sx={{ margin: "25px auto", width: "10%" }}

@@ -32,7 +32,7 @@ const OrderForm = () => {
     <Box sx={{display: 'flex', flexDirection: 'column'}}>
       <Typography variant="h3">Order:</Typography>
       <Typography variant="subtitle1" gutterBottom>
-        Our payment methods are on the way.
+        Our payment methods are on the way...
       </Typography>
       <Link sx={{typography: 'body1', fontSize: '20px', display: 'block'}} target="_blank" rel="noopener" href="https://www.fiverr.com/p4nda_boy/build-and-design-your-next-prefect-website" underline="none">
       {' Order Here >'}

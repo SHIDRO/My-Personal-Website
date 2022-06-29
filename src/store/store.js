@@ -18,7 +18,7 @@ const cart = createSlice({
             state.totalItems++;
         },
         deleteFromCart(state, action){
-            const removeItem = action.payload
+            const removeItem = action.payload;
             const foundItemIndex = state.cart.findIndex(item => item.name === removeItem.name);
 
             if(state.cart[foundItemIndex].amount === 1){
@@ -27,6 +27,8 @@ const cart = createSlice({
                 state.cart[foundItemIndex].amount--;
                 state.cart[foundItemIndex].price -= removeItem.price;
             }
+            state.totalPrice -= removeItem.price;
+            state.totalItems--;
         }
     }
 });
